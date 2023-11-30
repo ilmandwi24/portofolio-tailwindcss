@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio Tailwind CSS</title>
-    <link rel="stylesheet" href="dist/output.css" />
+    <link rel="stylesheet" href="dist/final.css" />
   </head>
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+
+  </script>
   <body >
     <!-- Header Start -->
     <header
@@ -39,41 +47,41 @@
             </button>
             <nav
               id="nav-menu"
-              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounderd-none"
+              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounderd-none dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent"
             >
               <ul class="block lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary"
+                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white"
                     >Beranda</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#about"
-                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary"
+                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white"
                     >Tentang Saya</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#portofolio"
-                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary"
+                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white"
                     >Portofolio</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#client"
-                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary"
+                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white"
                     >Client</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#blog"
-                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary"
+                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white"
                     >Blog</a
                   >
                 </li>
@@ -81,9 +89,21 @@
                 <li class="group">
                   <a
                     href="#contact"
-                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary"
+                    class="flex text-base text-dark py-2 mx-8 group-hover:text-primary dark:text-white"
                     >Contact</a
                   >
+                </li>
+                <li class="flex items-center pl-8 lg:mt-0 mt-2">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">Light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle">
+                    <label for="dark-toggle">
+                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                        <div class="toggle-circle h-4 w-4 bg-white rounded-full transition duration-300 ease-in-out "></div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">Dark</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -93,17 +113,18 @@
     </header>
     <!-- Header End -->
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36">
+    <!-- ubah class bg-dark di section -->
+    <section id="home" class="pt-36 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
             <h1 class="text-base font-semibold text-primary md:text-xl">
               Halo Semua 👋, Saya
-              <span class="block font-bold text-dark text-4xl lg:text-5xl"
+              <span class="block font-bold text-dark text-4xl lg:text-5xl dark:text-white"
                 >Ilman Dwi Cahya</span
               >
             </h1>
-            <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl">
+            <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl dark:text-white">
               Web Developer
             </h2>
             <p class="font-medium text-slate-400 mb-10 leading-relaxed">
@@ -117,14 +138,15 @@
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">
             <div class="mt-10 relative lg:mt-9 lg:right-0">
+              <!-- relative supaya bisa dikasih z-index -->
               <img
                 src="dist/img/pp.png"
                 alt=""
-                class="max-w-full mx-auto"
+                class="max-w-full mx-auto z-10 relative"
                 width="500"
               />
               <span
-                class="absolute -bottom-0 left-1/2 -translate-x-1/2 -z-10 md:scale-125 scale-100"
+                class="absolute -bottom-0 left-1/2 -translate-x-1/2  md:scale-125 scale-100"
               >
               
                 <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -139,14 +161,14 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start-->
-    <section id="about" class="pt-36 pb-32 mb-10">
+    <section id="about" class="pt-36 pb-32  dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2">
             <h4 class="font-bold uppercase text-primary text-lg mb-3">
               Tentang saya
             </h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
+            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white">
               Yuk Belajar Web Programming
             </h2>
             <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
@@ -156,7 +178,7 @@
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <h3
-              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10"
+              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white"
             >
               Mari Berteman
             </h3>
@@ -268,12 +290,12 @@
     <!-- About Section End -->
 
     <!-- Portofolio Section Start-->
-    <section id="portofolio" class="pt-36 pb-16 bg-slate-100">
+    <section id="portofolio" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Portofolio</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4 md:text-4xl">
+            <h2 class="font-bold text-dark text-3xl mb-4 md:text-4xl dark:text-white">
               Project Terbaru
             </h2>
             <p class="font-medium text-md text-secondary">
@@ -298,8 +320,8 @@
               />
             </div>
             <!-- format tebal font, ukuran font dan warna font-->
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page Ilman Dwi
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+              Landing Page 1
             </h3>
             <p class="font-medium text-base text-secondary md:text-lg">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -316,8 +338,8 @@
               />
             </div>
             <!-- format tebal font, ukuran font dan warna font-->
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page Ilman Dwi
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+              Landing Page 2
             </h3>
             <p class="font-medium text-base text-secondary md:text-lg">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -334,8 +356,8 @@
               />
             </div>
             <!-- format tebal font, ukuran font dan warna font-->
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page Ilman Dwi
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+              Landing Page 3
             </h3>
             <p class="font-medium text-base text-secondary">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -352,8 +374,8 @@
               />
             </div>
             <!-- format tebal font, ukuran font dan warna font-->
-            <h3 class="font-semibold text-xl text-dark mt-5 mb-3">
-              Landing Page Ilman Dwi
+            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">
+              Landing Page 4
             </h3>
             <p class="font-medium text-base text-secondary">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -366,12 +388,12 @@
     <!-- Portofolio Section End -->
 
     <!-- Client Section Start -->
-    <section id="client" class="pt-36 pb-16 bg-slate-800">
+    <section id="client" class="pt-36 pb-16 bg-slate-800 dark:bg-slate-300">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Client</h4>
-            <h2 class="font-bold text-white text-3xl mb-4 md:text-4xl">
+            <h2 class="font-bold text-white text-3xl mb-4 md:text-4xl dark:text-dark">
               Yang Pernah Bekerja Sama
             </h2>
             <p class="font-medium text-md text-secondary">
@@ -415,12 +437,12 @@
     <!-- Client Section End -->
 
     <!-- Blog Section Start -->
-    <section id="blog" class="pt-36 pb-16 bg-slate-100">
+    <section id="blog" class="pt-36 pb-16 bg-slate-100 dark:bg-dark">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4 md:text-4xl">
+            <h2 class="font-bold text-dark text-3xl mb-4 md:text-4xl dark:text-white">
               Tulisan Terkini
             </h2>
             <p class="font-medium text-md text-secondary">
@@ -432,18 +454,18 @@
         <div class="flex flex-wrap">
           <!-- untuk membuat response kita atur perbreak point yaitu saat ukuran md maka ukuran blognya jadi 2 sedangkan lg jadi 3  -->
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
               <img
                 src="https://source.unsplash.com/360x200?programming"
                 alt="programming"
                 class="w-full"
               />
               <div class="py-8 px-6">
-                <h3>
+                <h3 class="dark:text-white">
                   <!-- truncate untuk memotong judul jika lebih dari pembungkusnya-->
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-dark hover:text-primary truncate"
+                    class="block mb-3 font-semibold text-dark hover:text-primary truncate dark:text-white"
                     >Tips Belajar Programming</a
                   >
                 </h3>
@@ -460,19 +482,19 @@
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class=" dark:bg-slate-800 bg-white rounded-xl shadow-lg overflow-hidden mb-10">
               <img
                 src="https://source.unsplash.com/360x200?education"
                 alt="programming"
                 class="w-full"
               />
               <div class="py-8 px-6">
-                <h3>
+                <h3 class="dark:text-white">
                   <!-- truncate untuk memotong judul jika lebih dari pembungkusnya-->
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-dark hover:text-primary truncate"
-                    >Tips Belajar Cepat Mengerti</a
+                    class="block mb-3 font-semibold text-dark hover:text-primary truncate dark:text-white"
+                    >Tips Bekerja Tim</a
                   >
                 </h3>
                 <p class="font-medium text-base text-secondary mb-4">
@@ -488,7 +510,7 @@
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="dark:bg-slate-800 bg-white rounded-xl shadow-lg overflow-hidden mb-10">
               <img
                 src="https://source.unsplash.com/360x200?economic"
                 alt="programming"
@@ -499,7 +521,7 @@
                   <!-- truncate untuk memotong judul jika lebih dari pembungkusnya-->
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-dark hover:text-primary truncate"
+                    class="block mb-3 font-semibold text-dark hover:text-primary truncate dark:text-white"
                     >Tips Menabung</a
                   >
                 </h3>
@@ -521,12 +543,12 @@
     <!-- Blog Section End -->
 
     <!-- Contact Section -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
-            <h2 class="font-bold text-dark text-3xl mb-4 md:text-4xl">
+            <h2 class="font-bold text-dark text-3xl mb-4 md:text-4xl dark:text-white">
               Hubungi Kami
             </h2>
             <p class="font-medium text-md text-secondary">
@@ -585,7 +607,7 @@
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
             <h2 class="font-bold text-4xl text-white mb-5">Ilman Dwi Dev</h2>
-            <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
+            <h3 class="font-bold text-2xl mb-2 e">Hubungi Kami</h3>
             <p>ilmandwi20@gmail.com</p>
             <p>Kecamatan Tambun Selatan</p>
             <p>Kabupaten Bekasi</p>
@@ -730,11 +752,17 @@
                 </svg>
               </a>
           </div>
-          <p class="font-medium text-xs text-slate-500 text-center">Dibuat dengan <span class="text-pink-500">❤</span> oleh <a href="#" target="_blank" class="text-primary font-bold">Ilman Dwi</a>, menggunakan <a href="https://tailwindcss.com/" target="_blank" class="text-sky-500 font-bold">Tailwind CSS</a></p>
+          <p class="font-medium text-xs text-slate-500 text-center">Dibuat dengan <span class="text-pink-500">❤️</span> oleh <a href="#" target="_blank" class="text-primary font-bold">Ilman Dwi</a>, menggunakan <a href="https://tailwindcss.com/" target="_blank" class="text-sky-500 font-bold">Tailwind CSS</a></p>
         </div>
       </div>
     </section>
     <!-- Footer End -->
+
+    <!-- Back to top start -->
+    <a id="to-top" href="#home" class="fixed hidden justify-center items-center z-[9999] p-4 h-14 w-14 bottom-0 right-4 rounded-full bg-primary hover:animate-pulse">
+      <span class="block h-5 w-5 border-t-2 border-l-2 mt-2 rotate-45"></span>
+    </a>
+    <!-- Back to top end -->
 
     <!-- script javascript -->
     <script src="dist/js/script.js"></script>
