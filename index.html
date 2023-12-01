@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio Tailwind CSS</title>
-    <link rel="stylesheet" href="dist/final.css" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <!-- <link rel="stylesheet" href="dist/final.css" /> -->
   </head>
   <script>
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -114,9 +115,9 @@
     <!-- Header End -->
     <!-- Hero Section Start -->
     <!-- ubah class bg-dark di section -->
-    <section id="home" class="pt-36 dark:bg-dark">
-      <div class="container">
-        <div class="flex flex-wrap">
+    <section id="home" class="pt-36 dark:bg-dark lg:h-screen  lg:overflow-hidden">
+      <div class="container ">
+        <div class="flex flex-wrap ">
           <div class="w-full self-center px-4 lg:w-1/2">
             <h1 class="text-base font-semibold text-primary md:text-xl">
               Halo Semua 👋, Saya
@@ -136,13 +137,13 @@
               >Hubungi Saya</a
             >
           </div>
-          <div class="w-full self-end px-4 lg:w-1/2">
-            <div class="mt-10 relative lg:mt-9 lg:right-0">
+          <div class="w-full self-end px-4 lg:w-1/2 ">
+            <div class="mt-10 relative lg:mt-9 lg:right-0 lg:bottom-0 pb-0 ">
               <!-- relative supaya bisa dikasih z-index -->
               <img
                 src="dist/img/pp.png"
                 alt=""
-                class="max-w-full mx-auto z-10 relative"
+                class="max-w-full mx-auto z-10 relative  lg:-bottom-3 scale-100 lg:scale-110"
                 width="500"
               />
               <span
